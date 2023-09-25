@@ -22,4 +22,4 @@ cp -r $PREFIX/email_data $DEST
 
 echo "[4]: output archive kdlp-prod-backup.$TIMESTAMP.tar.gz"
 cd $SCRIPT_DIR
-tar cf kdlp-prod-backup.$TIMESTAMP.tar.gz users.db.$TIMESTAMP grades.db.$TIMESTAMP email_data.$TIMESTAMP
+tar pcf kdlp-prod-backup.$TIMESTAMP.tar.gz users.db.$TIMESTAMP grades.db.$TIMESTAMP email_data.$TIMESTAMP
