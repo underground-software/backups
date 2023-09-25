@@ -1,7 +1,6 @@
 #!/bin/bash
 
-
-TIMESTAMP=$(date +%s)
+TIMESTAMP=${1:-$(date +%s)}
 
 echo "KDLP ORBIT LOCAL DATA BACKUP SCRIPT @ $TIMESTAMP"
 
