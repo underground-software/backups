@@ -23,7 +23,7 @@ test -f $BACKUP || die "no such backup '$BACKUP'"
 TMP=$(mktemp -d)
 cd $TMP
 cp $BACKUP .
-tar pxf $BACKUP
+tar --xattrs --xattrs-include='*' -pxf $BACKUP
 ls
 echo $TMP
 
