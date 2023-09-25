@@ -12,6 +12,22 @@ if [ -z "${1}" ]; then
 	exit 1
 fi
 
+preserve_grades_db=
+while getopts "gh" opt; do
+	case ${opt} in
+		h)
+			echo "use -g to preserve grades.db"
+			;;
+		g)
+			preserve_grades_db=yes
+			;;
+		*)
+			echo "unknown option"
+			;;
+	esac
+done
+shift $(($OPTIND - 1))
+
 FILENAME=$1
 
 die() { echo "error: $1" ; exit 1 ; }
@@ -27,9 +43,13 @@ cp $BACKUP .
 tar --xattrs --xattrs-include='*' -pxf $BACKUP
 ls
 
-echo "[1] Restore grades.db from $(ls grades*)"
-rm -rf $PREFIX/cano.py/mercury/grades.db
-cp --preserve=xattr -a grades.db* $PREFIX/cano.py/mercury/grades.db
+if [ -z "$preserve_grades_db" ]; then
+	echo "[1] Restore grades.db from $(ls grades*)"
+	rm -rf $PREFIX/cano.py/mercury/grades.db
+	cp --preserve=xattr -a grades.db* $PREFIX/cano.py/mercury/grades.db
+else
+	echo "[1] Option -g: Preserve grades.db"
+fi
 
 echo "[2] Restore users.db from $(ls users*)"
 rm -rf $PREFIX/cano.py/venus/users.db
