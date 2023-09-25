@@ -6,8 +6,8 @@ Script and scheme to keep KDLP ORBIT production data storage redundant
 
 Currently, we simply copy the user database into the repository with a unix timstamp suffix appended to the original filename. This is implmenented by the daily cronjob that invokes our `do_local_backup.sh`.
 
-## Development Task List 
+## Development Task List
 
-- [ ] create secure method to pull backups to external system
-- [ ] investigate which other data needs to be backed up
-- [ ] automate external backups
+- [x] create secure method to pull backups to external system (implemented using `cp -ar`, `tar pcf`, `tar xpf`, and of course, `scp`)
+- [x] automate external backups (these are done by dev.underground.software like [this](https://www.youtube.com/watch?v=Epty_tmqR80))
+- [ ] investigate which other data needs to be backed up.
