@@ -28,10 +28,13 @@ ls
 echo $TMP
 
 echo "[1] Restore grades.db from $(ls grades*)"
+rm -rf $PREFIX/cano.py/mercury/grades.db
 cp -a grades.db* $PREFIX/cano.py/mercury/grades.db
 
-echo "[2] Restore grades.db from $(ls grades*)"
+echo "[2] Restore users.db from $(ls users*)"
+rm -rf $PREFIX/cano.py/venus/users.db
 cp -a users.db* $PREFIX/cano.py/venus/users.db
 
 echo "[3] Restore email_data from $(ls | grep email_data)"
+rm -rf $PREFIX/email_data
 cp -ar email_data*/email_data $PREFIX/
