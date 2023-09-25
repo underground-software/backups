@@ -2,6 +2,7 @@
 
 PREFIX='/var/orbit'
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+TIMESTAMP=$(date +%s)
 
 PS4="-|"
 set -e -x
@@ -20,12 +21,11 @@ echo "KDLP ORBIT RESTORE FROM BACKUP $FILENAME"
 BACKUP="$PREFIX/backups/$FILENAME"
 test -f $BACKUP || die "no such backup '$BACKUP'"
 
-TMP=$(mktemp -d)
-cd $TMP
+mkdir restore.$TIMESTAMP
+cd restore.$TIMESTAMP
 cp $BACKUP .
 tar --xattrs --xattrs-include='*' -pxf $BACKUP
 ls
-echo $TMP
 
 echo "[1] Restore grades.db from $(ls grades*)"
 rm -rf $PREFIX/cano.py/mercury/grades.db
