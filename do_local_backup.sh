@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PREFIX='/mnt/telomerase'
+PREFIX='/var/orbit'
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 TIMESTAMP=${1:-$(date +%s)}
 
