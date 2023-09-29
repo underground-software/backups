@@ -10,4 +10,5 @@ Currently, we simply copy the user database into the repository with a unix tims
 
 - [x] create secure method to pull backups to external system (implemented using `cp -ar`, `tar pcf`, `tar xpf`, and of course, `scp`)
 - [x] automate external backups (these are done by dev.underground.software like [this](https://www.youtube.com/watch?v=Epty_tmqR80))
+- [ ] matrix data backup
 - [ ] investigate which other data needs to be backed up.

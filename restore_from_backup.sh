@@ -28,7 +28,7 @@ while getopts "gh" opt; do
 done
 shift $(($OPTIND - 1))
 
-FILENAME=$1
+FILENAME=`basename $1`
 
 die() { echo "error: $1" ; exit 1 ; }
 

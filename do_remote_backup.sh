@@ -1,9 +1,9 @@
 #!/bin/bash
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-TIMESTAMP=$(date +%s)
+TIMESTAMP=${1:-$(date +%s)}
 PREFIX='/mnt/telomerase'
-REMOTE='dev-01.kdlp.underground.software'
+REMOTE=${PROD_REMOTE:-$(cat prod.hostname)}
 
 PS4="-|"
 set -e -x
