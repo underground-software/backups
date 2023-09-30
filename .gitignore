@@ -1,2 +1,4 @@
 *.db*
 email_data*
+restore.*
+*-backup*
