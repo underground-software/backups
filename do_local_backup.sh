@@ -20,16 +20,6 @@ DEST=$PREFIX/backups/email_data.$TIMESTAMP
 mkdir -p $DEST
 cp --preserve=xattr -ar $PREFIX/email_data $DEST
 
-echo "[4]: back up matrix data"
-
-DEST=$PREFIX/backups/var_lib_synapse.$TIMESTAMP
-mkdir -p $DEST
-cp --preserve=xattr -ar /var/lib/synapse $DEST
-
-DEST=$PREFIX/backups/etc_synapse.$TIMESTAMP
-mkdir -p $DEST
-cp --preserve=xattr -ar /etc/synapse $DEST
-
 echo "[5]: output archive kdlp-prod-backup.$TIMESTAMP.tar.gz"
 cd $SCRIPT_DIR
-tar --xattrs --xattrs-include='*' -pcf kdlp-prod-backup.$TIMESTAMP.tar.gz users.db.$TIMESTAMP grades.db.$TIMESTAMP email_data.$TIMESTAMP $PREFIX/backups/etc_synapse.$TIMESTAMP $PREFIX/backups/var_lib_synapse.$TIMESTAMP
+tar --xattrs --xattrs-include='*' -pcf kdlp-prod-backup.$TIMESTAMP.tar.gz users.db.$TIMESTAMP grades.db.$TIMESTAMP email_data.$TIMESTAMP
