@@ -9,5 +9,5 @@ PS4="-|"
 set -e -x
 
 ssh root@$REMOTE $PREFIX/backups/do_local_backup.sh "$TIMESTAMP"
-scp root@$REMOTE:$PREFIX/backups/kdlp-prod-backup.$TIMESTAMP.tar.gz \
-	$SCRIPT_DIR/kdlp-$REMOTE-backup.$TIMESTAMP.tar.gz
+scp root@$REMOTE:$PREFIX/backups/orbit-old-backup.$TIMESTAMP.tar.gz \
+	$SCRIPT_DIR/orbit-old-backup.$TIMESTAMP.tar.gz
