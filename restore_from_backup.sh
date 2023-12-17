@@ -58,7 +58,3 @@ cp --preserve=xattr -a users.db* $PREFIX/cano.py/venus/users.db
 echo "[3] Restore email_data from $(ls | grep email_data)"
 rm -rf $PREFIX/email_data
 cp --preserve=xattr -ar email_data*/email_data $PREFIX/
-
-#echo "[4] Restore matrix server from both of $(ls | grep matrix)"
-#rm -rf /etc/synapse
-#cp --preserve=xattr -ar etc_matrix*
